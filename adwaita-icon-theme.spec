@@ -29,7 +29,6 @@ This package contains the Adwaita icon theme used by the GNOME desktop.
 Summary:	Adwaita cursor theme
 Group:		Graphical desktop/GNOME
 BuildArch:	noarch
-Conflicts:	%{name} < 3.13.1-2
 
 %description -n	adwaita-cursor-theme
 The adwaita-cursor-theme package contains a modern set of cursors originally
