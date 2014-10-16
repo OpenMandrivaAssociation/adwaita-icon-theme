@@ -2,7 +2,7 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	3.13.1
+Version:	3.14.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -33,6 +33,15 @@ BuildArch:	noarch
 %description -n	adwaita-cursor-theme
 The adwaita-cursor-theme package contains a modern set of cursors originally
 designed for the GNOME desktop.
+
+%package        devel
+Summary:        Development files for adwaita-icon-theme
+Group:          Development/C
+Requires:       %{name} = %{version}-%{release}
+
+%description devel
+Development files for gnome-icon-theme
+
 
 %prep
 %setup -q
@@ -77,10 +86,15 @@ chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script
 %{_datadir}/icons/Adwaita/*x*/*
 %dir %{_datadir}/icons/Adwaita/scalable/
 %{_datadir}/icons/Adwaita/scalable/*
+%dir %{_datadir}/icons/Adwaita/scalable-up-to-32
+%{_datadir}/icons/Adwaita/scalable-up-to-32/*
 %exclude %{_datadir}/icons/Adwaita/cursors/
 %{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.*
 
-%{_datadir}/pkgconfig/%{name}.pc
-
 %files -n adwaita-cursor-theme
 %{_datadir}/icons/Adwaita/cursors/
+
+
+%files devel
+%{_datadir}/pkgconfig/%{name}.pc
+
