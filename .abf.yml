@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   adwaita-icon-theme-3.16.0.tar.xz: ef3bad0286f4400295ad79d52b8438c9131b91d7
+sources:
+  adwaita-icon-theme-3.18.0.tar.xz: 00f32a1ee3db430ab77ec1248645603348392f89
