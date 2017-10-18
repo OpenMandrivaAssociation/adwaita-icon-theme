@@ -2,8 +2,8 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	3.18.0
-Release:	2
+Version:	3.26.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
@@ -11,11 +11,12 @@ Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version
 BuildRequires:	intltool
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	icon-naming-utils >= 0.8.7
-BuildRequires:	gtk+2.0
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(librsvg-2.0)
 BuildArch:	noarch
 Requires:	hicolor-icon-theme
-Requires(post):	gtk+2.0 >= 2.6.0
-Requires(postun):gtk+2.0 >= 2.6.0
+Requires(post):	gtk+3.0 >= 3.19
+Requires(postun):gtk+3.0 >= 3.19
 
 # gnome-icon-theme and gnome-icon-theme-symbolic were merged
 # into one pkg adwaita-icon-theme
@@ -25,19 +26,19 @@ Requires(postun):gtk+2.0 >= 2.6.0
 %description
 This package contains the Adwaita icon theme used by the GNOME desktop.
 
-%package -n	adwaita-cursor-theme
+%package -n adwaita-cursor-theme
 Summary:	Adwaita cursor theme
 Group:		Graphical desktop/GNOME
 BuildArch:	noarch
 
-%description -n	adwaita-cursor-theme
+%description -n adwaita-cursor-theme
 The adwaita-cursor-theme package contains a modern set of cursors originally
 designed for the GNOME desktop.
 
-%package        devel
-Summary:        Development files for adwaita-icon-theme
-Group:          Development/C
-Requires:       %{name} = %{version}-%{release}
+%package devel
+Summary:	Development files for adwaita-icon-theme
+Group:		Development/C
+Requires:	%{name} = %{EVRD}
 
 %description devel
 Development files for gnome-icon-theme
@@ -54,6 +55,9 @@ Development files for gnome-icon-theme
 %makeinstall_std
 
 touch %{buildroot}%{_datadir}/icons/Adwaita/icon-theme.cache
+
+#compatibility symlink
+ln -s %{name}.pc %{buildroot}%{_datadir}/pkgconfig/gnome-icon-theme.pc
 
 # automatic gtk icon cache update on rpm installs/removals
 # (see http://wiki.mandriva.com/en/Rpm_filetriggers)
@@ -94,7 +98,5 @@ chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script
 %files -n adwaita-cursor-theme
 %{_datadir}/icons/Adwaita/cursors/
 
-
 %files devel
-%{_datadir}/pkgconfig/%{name}.pc
-
+%{_datadir}/pkgconfig/*.pc
