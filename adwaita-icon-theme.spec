@@ -83,7 +83,7 @@ chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script
 %clean_icon_cache Adwaita
 
 %files
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS
 %dir %{_datadir}/icons/Adwaita/
 %{_datadir}/icons/Adwaita/index.theme
 %ghost %{_datadir}/icons/Adwaita/icon-theme.cache
