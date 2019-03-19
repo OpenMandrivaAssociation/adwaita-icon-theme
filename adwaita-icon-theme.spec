@@ -3,7 +3,7 @@
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
 Version:	3.32.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
@@ -15,8 +15,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildArch:	noarch
 Requires:	hicolor-icon-theme
-Requires(post):	gtk+3.0 >= 3.19
-Requires(postun):gtk+3.0 >= 3.19
+Requires:	gtk+3.0 >= 3.19
 
 # gnome-icon-theme and gnome-icon-theme-symbolic were merged
 # into one pkg adwaita-icon-theme
@@ -58,29 +57,18 @@ touch %{buildroot}%{_datadir}/icons/Adwaita/icon-theme.cache
 
 #compatibility symlink
 ln -s %{name}.pc %{buildroot}%{_datadir}/pkgconfig/gnome-icon-theme.pc
-
-# automatic gtk icon cache update on rpm installs/removals
-# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
-install -d %{buildroot}%{_var}/lib/rpm/filetriggers
-
-cat > %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.filter << EOF
-^./usr/share/icons/Adwaita/
-EOF
-
-cat > %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script << EOF
-#!/bin/sh
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/Adwaita
-fi
-EOF
-
 chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script
 
-%post
-%update_icon_cache Adwaita
+# automatic gtk icon cache update on rpm installs/removals
+%transfiletriggerin -- %{_datadir}/icons/Adwaita
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    gtk-update-icon-cache --force %{_datadir}/icons/Adwaita &>/dev/null || :
+fi
 
-%postun
-%clean_icon_cache Adwaita
+%transfiletriggerpostun -- %{_datadir}/icons/Adwaita
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    gtk-update-icon-cache --force %{_datadir}/icons/Adwaita &>/dev/null || :
+fi
 
 %files
 %doc AUTHORS NEWS
