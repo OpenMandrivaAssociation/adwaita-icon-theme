@@ -57,7 +57,6 @@ touch %{buildroot}%{_datadir}/icons/Adwaita/icon-theme.cache
 
 #compatibility symlink
 ln -s %{name}.pc %{buildroot}%{_datadir}/pkgconfig/gnome-icon-theme.pc
-chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.script
 
 # automatic gtk icon cache update on rpm installs/removals
 %transfiletriggerin -- %{_datadir}/icons/Adwaita
