@@ -81,7 +81,6 @@ fi
 %dir %{_datadir}/icons/Adwaita/scalable-up-to-32
 %{_datadir}/icons/Adwaita/scalable-up-to-32/*
 %exclude %{_datadir}/icons/Adwaita/cursors/
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-adwaita.*
 
 %files -n adwaita-cursor-theme
 %{_datadir}/icons/Adwaita/cursors/
