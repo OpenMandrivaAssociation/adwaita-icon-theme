@@ -2,8 +2,8 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	3.38.0
-Release:	1
+Version:	40
+Release:	0.rc
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
@@ -43,7 +43,7 @@ Requires:	%{name} = %{EVRD}
 Development files for gnome-icon-theme
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.rc
 
 %build
 %configure --enable-icon-mapping
