@@ -7,7 +7,7 @@ Release:	0.rc
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
-Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.rc.tar.xz
 BuildRequires:	intltool
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	icon-naming-utils >= 0.8.7
