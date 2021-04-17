@@ -2,12 +2,12 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	40
-Release:	0.rc
+Version:	40.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
-Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.rc.tar.xz
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	intltool
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	icon-naming-utils >= 0.8.7
@@ -43,7 +43,7 @@ Requires:	%{name} = %{EVRD}
 Development files for gnome-icon-theme
 
 %prep
-%setup -q -n %{name}-%{version}.rc
+%setup -q -n %{name}-%{version}
 
 %build
 %configure --enable-icon-mapping
