@@ -77,8 +77,7 @@ fi
 %{_datadir}/icons/Adwaita/*x*/*
 %dir %{_datadir}/icons/Adwaita/scalable/
 %{_datadir}/icons/Adwaita/scalable/*
-#dir %{_datadir}/icons/Adwaita/scalable-up-to-32
-#{_datadir}/icons/Adwaita/scalable-up-to-32/*
+%{_datadir}/icons/Adwaita/symbolic*
 %exclude %{_datadir}/icons/Adwaita/cursors/
 
 %files -n adwaita-cursor-theme
