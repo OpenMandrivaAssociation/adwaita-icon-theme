@@ -70,6 +70,7 @@ if [ -x /usr/bin/gtk-update-icon-cache ]; then
 fi
 
 %files
+%doc %{_datadir}/licenses/adwaita-icon-theme/COPYING*
 %doc AUTHORS NEWS
 %dir %{_datadir}/icons/Adwaita/
 %{_datadir}/icons/Adwaita/index.theme
@@ -79,6 +80,7 @@ fi
 %dir %{_datadir}/icons/Adwaita/scalable/
 %{_datadir}/icons/Adwaita/scalable/*
 %{_datadir}/icons/Adwaita/symbolic*
+%{_datadir}/icons/Adwaita/.icon-theme.cache
 %exclude %{_datadir}/icons/Adwaita/cursors/
 
 %files -n adwaita-cursor-theme
