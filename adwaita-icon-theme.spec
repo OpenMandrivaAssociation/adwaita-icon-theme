@@ -2,12 +2,13 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	44.0
-Release:	2
+Version:	45
+Release:    0.rc.0
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
-Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.rc.tar.xz
+BuildRequires:    meson
 BuildRequires:	intltool
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	icon-naming-utils >= 0.8.7
@@ -43,14 +44,14 @@ Requires:	%{name} = %{EVRD}
 Development files for gnome-icon-theme
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}.rc
 
 %build
-%configure --enable-icon-mapping
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 touch %{buildroot}%{_datadir}/icons/Adwaita/icon-theme.cache
 
@@ -69,6 +70,7 @@ if [ -x /usr/bin/gtk-update-icon-cache ]; then
 fi
 
 %files
+%doc %{_datadir}/licenses/adwaita-icon-theme/COPYING*
 %doc AUTHORS NEWS
 %dir %{_datadir}/icons/Adwaita/
 %{_datadir}/icons/Adwaita/index.theme
@@ -78,6 +80,7 @@ fi
 %dir %{_datadir}/icons/Adwaita/scalable/
 %{_datadir}/icons/Adwaita/scalable/*
 %{_datadir}/icons/Adwaita/symbolic*
+%{_datadir}/icons/Adwaita/.icon-theme.cache
 %exclude %{_datadir}/icons/Adwaita/cursors/
 
 %files -n adwaita-cursor-theme
