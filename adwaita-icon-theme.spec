@@ -74,13 +74,13 @@ fi
 %doc AUTHORS NEWS
 %dir %{_datadir}/icons/Adwaita/
 %{_datadir}/icons/Adwaita/index.theme
-%ghost %{_datadir}/icons/Adwaita/icon-theme.cache
+#ghost %{_datadir}/icons/Adwaita/icon-theme.cache
 %dir %{_datadir}/icons/Adwaita/*x*/
 %{_datadir}/icons/Adwaita/*x*/*
 %dir %{_datadir}/icons/Adwaita/scalable/
 %{_datadir}/icons/Adwaita/scalable/*
 %{_datadir}/icons/Adwaita/symbolic*
-%{_datadir}/icons/Adwaita/.icon-theme.cache
+#{_datadir}/icons/Adwaita/.icon-theme.cache
 %exclude %{_datadir}/icons/Adwaita/cursors/
 
 %files -n adwaita-cursor-theme
