@@ -13,6 +13,7 @@ BuildRequires:	intltool
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	icon-naming-utils >= 0.8.7
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gtk4)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildArch:	noarch
 Requires:	hicolor-icon-theme
@@ -81,6 +82,7 @@ fi
 %{_datadir}/icons/Adwaita/scalable/*
 %{_datadir}/icons/Adwaita/symbolic*
 #{_datadir}/icons/Adwaita/.icon-theme.cache
+#{_datadir}/icons/Adwaita/icon-theme.cache
 %exclude %{_datadir}/icons/Adwaita/cursors/
 
 %files -n adwaita-cursor-theme
