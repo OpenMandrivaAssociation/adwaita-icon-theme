@@ -2,11 +2,11 @@
 
 Summary:	GNOME default icons
 Name:		adwaita-icon-theme
-Version:	45.0
+Version:	46.0
 Release:    1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-URL:		http://www.gnome.org/
+URL:		https://www.gnome.org/
 Source0:	https://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:    meson
 BuildRequires:	intltool
